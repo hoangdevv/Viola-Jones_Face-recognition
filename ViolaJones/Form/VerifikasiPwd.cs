@@ -44,7 +44,7 @@ namespace ViolaJones
 					else
 					{
 						KendaliParameter.verifikasi=false;
-						MessageBox.Show("Kode Kunci tidak sesuai.");
+						MessageBox.Show("Mã Khóa không đúng.");
 					}
 				}
 				catch (Exception)
@@ -59,7 +59,7 @@ namespace ViolaJones
 
 		private void VerifikasiPwd_Load(object sender, EventArgs e)
 		{
-			Text += " akun : "+KendaliParameter.akunTmp+"";
+			Text += " Tài khoản : "+KendaliParameter.akunTmp+"";
 		}
 
 		private void EnterKey(object sender, KeyEventArgs e)

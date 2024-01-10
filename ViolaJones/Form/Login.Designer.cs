@@ -69,9 +69,9 @@
             this.Label1.ForeColor = System.Drawing.Color.Navy;
             this.Label1.Location = new System.Drawing.Point(180, 93);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(89, 20);
+            this.Label1.Size = new System.Drawing.Size(78, 20);
             this.Label1.TabIndex = 5;
-            this.Label1.Text = "Kode Kunci";
+            this.Label1.Text = "Password";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // BtnBatal
@@ -80,7 +80,7 @@
             this.BtnBatal.Name = "BtnBatal";
             this.BtnBatal.Size = new System.Drawing.Size(108, 36);
             this.BtnBatal.TabIndex = 4;
-            this.BtnBatal.Text = "&Batal";
+            this.BtnBatal.Text = "Thoát";
             this.BtnBatal.UseVisualStyleBackColor = true;
             this.BtnBatal.Click += new System.EventHandler(this.BtnBatal_Click);
             // 
@@ -118,7 +118,7 @@
             this.BtnMasuk.Name = "BtnMasuk";
             this.BtnMasuk.Size = new System.Drawing.Size(111, 36);
             this.BtnMasuk.TabIndex = 3;
-            this.BtnMasuk.Text = "&Masuk";
+            this.BtnMasuk.Text = "Đăng nhập";
             this.BtnMasuk.UseVisualStyleBackColor = true;
             this.BtnMasuk.Click += new System.EventHandler(this.BtnMasuk_Click);
             // 
@@ -129,9 +129,9 @@
             this.Label2.ForeColor = System.Drawing.Color.Navy;
             this.Label2.Location = new System.Drawing.Point(180, 25);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(128, 20);
+            this.Label2.Size = new System.Drawing.Size(87, 20);
             this.Label2.TabIndex = 5;
-            this.Label2.Text = "Nama Pengguna";
+            this.Label2.Text = "User name";
             this.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Login

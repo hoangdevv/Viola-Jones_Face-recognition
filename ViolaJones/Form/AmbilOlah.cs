@@ -175,7 +175,7 @@ namespace ViolaJones
 			txtpict.Value = 1;
 			if (string.IsNullOrEmpty(txtnama.Text))
             {
-                MessageBox.Show("Silakan pilih akun untuk mengubahnya", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn tài khoản để chỉnh sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -207,12 +207,12 @@ namespace ViolaJones
 
             if (string.IsNullOrEmpty(txtnama.Text))
             {
-                MessageBox.Show("Silakan pilih akun untuk menghapusnya", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn tài khoản để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
 
-                DialogResult dialogResult = MessageBox.Show("Apakah yakin akan menghapus akun?", "Hapus", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản này không?", "Xóa", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
 					try
@@ -233,8 +233,8 @@ namespace ViolaJones
 							{
 								File.Delete(curFile);
 							}
-							catch { MessageBox.Show("Maaf, aplikasi gagal menghapus simpanan gambarnya."); }
-                          
+                            catch { MessageBox.Show("Xóa không thành công, ứng dụng không thể xóa hình ảnh."); }
+
                         }
                     }
 
@@ -304,14 +304,14 @@ namespace ViolaJones
                 ///tambah record
                 if (string.IsNullOrEmpty(txtnama.Text) | string.IsNullOrEmpty(txtPWD.Text))
                 {
-                    MessageBox.Show("Silakan lengkapi kotak isian", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     int akun =  totalAkun(txtnama.Text);
                     if (akun !=0)
                     {
-                        MessageBox.Show("Nama akun telah terpakai", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Tên tài khoản đã được sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -341,7 +341,7 @@ namespace ViolaJones
                 ///perbarui record
                 if (string.IsNullOrEmpty(txtPWD.Text) | string.IsNullOrEmpty(txtnama.Text))
                 {
-					MessageBox.Show("Silakan lengkapi kotak isian", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -531,9 +531,9 @@ namespace ViolaJones
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Tidak mendeteksi wajah. Silakan coba ulangi lagi. ", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			}
-			finally
+                MessageBox.Show("Không phát hiện khuôn mặt. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
 			{
 
 				result = null;
@@ -626,12 +626,14 @@ namespace ViolaJones
 					CekSbgLockWindows();
 
 				}
-				else { MessageBox.Show("Database kosong... \nOperasi pemasangan kunci dibatalkan."); }
+                else
+                {
+                    MessageBox.Show("Cơ sở dữ liệu trống... \nThao tác cài đặt khóa đã bị hủy bỏ.", "Thông báo", MessageBoxButtons.OK);
+                }
 
-
-			}
+            }
 			else {
-				MessageBox.Show("Pengubahan pengaturan pengunci tidak dapat dilaksanakan,\nSilakan jalankan ulang program ini dalam mode Administrator.");
+				MessageBox.Show("Không thể thực hiện thay đổi cài đặt khóa,\nVui lòng chạy lại chương trình này ở chế độ Quản trị viên.");
 			}
 			
 
@@ -645,9 +647,9 @@ namespace ViolaJones
 				btnPin.Enabled = false;
 				btnPin.Visible = false;
 				iterasiTombolPengaturKunci = 1;
-				btnImplLogin.Text = "Pengunci belum terpasang";
-				toolTip.SetToolTip((Control)btnImplLogin, "Pengunci belum terpasang.\nKlik tombol untuk memasang");
-				btnImplLogin.Image = Properties.Resources.unlocked;
+                btnImplLogin.Text = "Chưa cài đặt khóa";
+                toolTip.SetToolTip((Control)btnImplLogin, "Chưa cài đặt khóa.\nNhấp vào nút để cài đặt");
+                btnImplLogin.Image = Properties.Resources.unlocked;
 			}
 			else
 				if (p == KendaliParameter.PerintahPengunci.PengunciAktif) //aktif
@@ -655,10 +657,10 @@ namespace ViolaJones
 					btnPin.Enabled = true;
 					btnPin.Visible = true;
 					iterasiTombolPengaturKunci = 3;
-					btnImplLogin.Text="Pengunci aktif";
-					toolTip.SetToolTip((Control)btnImplLogin, "Pengunci dalam kondisi aktif.\nKlik tombol untuk mematikan");
+					btnImplLogin.Text = "Khóa đã được kích hoạt";
+					toolTip.SetToolTip((Control)btnImplLogin, "Khóa đang được kích hoạt.\nNhấp vào nút để tắt");
 
-					btnImplLogin.Image=Properties.Resources._lock;
+                btnImplLogin.Image=Properties.Resources._lock;
 					lockWorksation = true;
 
 				}
@@ -666,8 +668,8 @@ namespace ViolaJones
 					btnPin.Enabled = true;
 					btnPin.Visible = true;
 					iterasiTombolPengaturKunci = 2;
-					btnImplLogin.Text="Pengunci tidak aktif";
-					toolTip.SetToolTip((Control)btnImplLogin, "Pengunci dalam kondisi tidak aktif.\nKlik tombol untuk mengaktifkan");
+					btnImplLogin.Text= "Pengunci không hoạt động";
+					toolTip.SetToolTip((Control)btnImplLogin, "Pengunci đang ở trạng thái không hoạt động. Nhấp vào nút để kích hoạt");
 					btnImplLogin.Image = Properties.Resources.unlocked;
 			
 			}
@@ -685,10 +687,10 @@ namespace ViolaJones
 				CekSbgLockWindows();
 			}
 			else {
-				MessageBox.Show("Pengubahan pengaturan pengunci tidak dapat dilaksanakan,\nSilakan jalankan ulang program ini dalam mode Administrator.");
-			}
-			
-		}
+                MessageBox.Show("Không thể thay đổi cài đặt khóa, \nVui lòng chạy lại chương trình này dưới chế độ quản trị viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
 
     }
 }

@@ -26,7 +26,7 @@ namespace ViolaJones
 			if (ProgresSplash.Value < 100)
 			{
 				ProgresSplash.Value += 2;
-				Lbelsplash.Text = "Sedang Memuat... (" + ProgresSplash.Value + "%)";
+				Lbelsplash.Text = "Đang được thực hiện... (" + ProgresSplash.Value + "%)";
 			}
 			if (ProgresSplash.Value == 100)
 			{

@@ -21,6 +21,7 @@ using ProcessUtil;
 
 namespace ViolaJones
 {
+
     public partial class DeteksiWajah : Form
     {
 		int ambang = 1000;
@@ -164,9 +165,9 @@ namespace ViolaJones
 				else
 				{
 					label1.Visible = true;
-					label1.Text = "Sedang memuat ... (" + progressBar.Value + "%)";
-				}
-			}
+                    label1.Text = "Đang tải ... (" + progressBar.Value + "%)";
+                }
+            }
 			else {
 				if (progressBar.Value < 100)
 				{
@@ -204,15 +205,15 @@ namespace ViolaJones
 					timerFG.Enabled = true;
 				}
 				catch (Exception ex) {
-					if (DBtermuat)
-					{
-						MessageBox.Show("Gagal pada ... \n" + ex.ToString());
-					}
-					else
-					{
-						MessageBox.Show("Gagal memuat ... " + ex.ToString());
-					}
-				}
+                    if (DBtermuat)
+                    {
+                        MessageBox.Show("Thất bại tại ... \n" + ex.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thất bại khi tải ... " + ex.ToString());
+                    }
+                }
 				
 			}
 			else
@@ -267,11 +268,11 @@ namespace ViolaJones
 								   ref termCrit);
 								   name = recognizer.Recognize(hasilTemp);
 								   frameByte.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
-							}
-                            
-							namaPemilikGambar[t - 1] = name;
+
+                            }
+                            namaPemilikGambar[t - 1] = name;
 							namaPemilikGambar.Add("");
-						}
+						}						
 						t = 0;
 
 						//kumpulan nama akun
@@ -302,9 +303,11 @@ namespace ViolaJones
 					catch (Exception ex) { MessageBox.Show(ex.Message); }
 					
 				}
-			}
-			else {
-				InisialisasiKamera(false);
+
+            }
+            else {
+
+                InisialisasiKamera(false);
 				button3.Visible = true;
 				button3.Enabled = true;
 			}
@@ -350,7 +353,6 @@ namespace ViolaJones
 
 		private void datamhs(string nhs)
 		{
-
 			string namaAkn = null;
 			DataCount = new OleDbDataAdapter("select *  from Akun where nama='" + nhs + "'", Connection);
 			OleDbCommandBuilder CommandBuilder = new OleDbCommandBuilder(DataCount);
@@ -545,7 +547,7 @@ namespace ViolaJones
 					else { Keluar.PerformClick(); }
 				}
 				else {
-					labelGagal.Text = "Kombinasi tidak tepat.";
+					labelGagal.Text = "Kết hợp không đúng.";
 				}
 			}
 			catch (Exception ex)

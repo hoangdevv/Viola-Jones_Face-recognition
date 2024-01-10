@@ -52,7 +52,7 @@ namespace ViolaJones
 					}
 					else
 					{
-						MessageBox.Show("Username dan Password tidak Valid...!!!");
+						MessageBox.Show("Tên người dùng và Mật khẩu không hợp lệ...!!!");
 					}
 				}
 				catch (Exception ex)
@@ -67,7 +67,7 @@ namespace ViolaJones
 			}
 			else
 			{
-				MessageBox.Show("Silakan masukkan informasi login!");
+				MessageBox.Show("Vui lòng nhập thông tin đăng nhập!");
 			}
 		}
 
